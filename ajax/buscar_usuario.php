@@ -49,7 +49,13 @@
                 echo "<td>".$row['username']."</td>";
                 echo "<td>".$row['tipo_usuario']."</td>";
                 echo '<td class="text-right">';
-                echo '<a title="modificar rol de usuario" class="btn btn-default" onclick="modificar('.$row['username'].');" href="#" data-toggle="modal" data-target="#myModal">';
+                echo '<a title="modificar rol de usuario" class="btn btn-default"';
+                echo 'onclick="modificar(';
+                echo "'"; 
+                echo ''.$row['username'].'';
+                echo "'";
+                echo ');" '; 
+                echo 'href="#" data-toggle="modal" data-target="#myModal">';
                 echo '<i class="glyphicon glyphicon-pencil"></i>';
                 echo '</a></td>';
                 echo '</tr>';

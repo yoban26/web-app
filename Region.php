@@ -1,6 +1,6 @@
 <?php
     //validar si el usuario inicio session en la app
-    session_start();
+    include 'config/session_expire.php';
     
 	   if ($_SESSION['login_status'] != 1) {
         header("location: login.php");
@@ -23,7 +23,7 @@
 <head>
     <?php
       $title = "Nueva Region";
-      include '/Plantilla/header.php';
+      include 'Plantilla/header.php';
     ?>
     <script type="text/javascript" src="js/asignacion.js"></script>
 </head>
@@ -31,9 +31,9 @@
 <body data-spy="scroll" data-target="#myScroll" data-offset="20">
     <?php
       if(strcmp($user_type,"1")==0){
-        include '/Plantilla/navbar.php';
+        include 'Plantilla/navbar.php';
       }else{
-        include '/Plantilla/navbar_consultor.php';
+        include 'Plantilla/navbar_consultor.php';
       }
     ?>
 
@@ -59,6 +59,6 @@
 </body>
 
 <footer>
-   <?php include '/Plantilla/footer.php'; ?>
+   <?php include 'Plantilla/footer.php'; ?>
 </footer>
 </html>

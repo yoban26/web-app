@@ -1,7 +1,6 @@
 
 <?php
-
-    session_start();
+    include 'config/session_expire.php';
 
     //validar si el usuario inicio session en la app
 	  if ($_SESSION['login_status'] != 1) {
@@ -23,13 +22,13 @@
 <head>
     <?php
         $title = "Dashboard | Administrador";
-        include '/Plantilla/header.php';
+        include 'Plantilla/header.php';
     ?>
     <script type="text/javascript" src="js/llenar_cliente.js"></script>
 </head>
 <body>
     <?php
-        include '/Plantilla/navbar.php';
+        include 'Plantilla/navbar.php';
     ?>
     <div class="wrapper">
       <div class="container">
@@ -71,7 +70,7 @@
 </body>
 <footer>
     <?php
-        include '/Plantilla/footer_buttom.php';
+        include 'Plantilla/footer_buttom.php';
     ?>
 </footer>
 </html>

@@ -1,7 +1,6 @@
 <?php
-
-    session_start();
-
+    include 'config/session_expire.php';
+    
     //validar si el usuario inicio session en la app
 	   if ($_SESSION['login_status'] != 1) {
         header("location: login.php");
@@ -37,7 +36,7 @@
 <head>
     <?php
       $title = "Asignar";
-      include '/Plantilla/header.php';
+      include 'Plantilla/header.php';
     ?>
     <script type="text/javascript" src="js/buscar_asignaciones.js"></script>
     <script type="text/javascript" src="js/guardar_asignacion.js"></script>
@@ -60,9 +59,9 @@
 <body>
     <?php
       if(strcmp($user_type,"1")==0){
-        include '/Plantilla/navbar.php';
+        include 'Plantilla/navbar.php';
       }else{
-        include '/Plantilla/navbar_consultor.php';
+        include 'Plantilla/navbar_consultor.php';
       }
     ?>
 
@@ -80,7 +79,7 @@
           <div class="panel-body">
             <?php
               //agregar aqui los modal
-              include("modal/asignar_cuestionario.php");
+              include 'modal/asignar_cuestionario.php';
             ?>
             <p><h4>Consultar los cuestionarios asignados actualmente.</h4></p>
             <div class="container">
@@ -141,6 +140,6 @@
     </div><!-- final wrapper -->
 </body>
 <footer>
-   <?php include '/Plantilla/footer.php'; ?>
+   <?php include 'Plantilla/footer.php'; ?>
 </footer>
 </html>

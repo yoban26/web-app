@@ -1,9 +1,10 @@
 <?php
     //validar si el usuario inicio session en la app
-    session_start();
+    include 'config/session_expire.php';
+
 	if ($_SESSION['login_status'] != 1) {
         header("location: login.php");
-		exit;
+		    exit;
     }else{
         /*incluir script de conexion*/
         include('connect.php');
@@ -22,32 +23,27 @@
 <head>
     <?php
       $title = "Nuevo Usuario";
-      include '/Plantilla/header.php';
+      include 'Plantilla/header.php';
     ?>
-    <script type="text/javascript" src="js/asignacion.js"></script>
-    <script>
-      function validatePassword(){
-        var pass = document.getElementById("password").value;
-        var pass_conf = document.getElementById("password_confirm").value;
-        var error = "";
-        if(pass != pass_conf){
-          error = '<div class="alert alert-danger">'+
-                  '<strong>Aviso!</strong> Las contrase&ntilde;as ingresadas no coinciden.'+
-                  '</div>';
-          //error = "error gorrso";
-          document.getElementById("show_error").innerHTML = error;
-          return false;
-        }
-      }
+    <script type="text/javascript" src="js/usuario.js"></script>
+    <script type="text/javascript" src="js/select_cliente.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#NuevoUsuarioModal').on('hidden.bs.modal',function(e){
+          $('.form-control').val('');
+          $('#btn_save').attr('disable',false);
+        });
+      });
     </script>
 </head>
 
 <body data-spy="scroll" data-target="#myScroll" data-offset="20">
     <?php
       if(strcmp($user_type,"1")==0){
-        include '/Plantilla/navbar.php';
+        include 'Plantilla/navbar.php';
       }else{
-        include '/Plantilla/navbar_consultor.php';
+        include 'Plantilla/navbar_consultor.php';
       }
     ?>
 
@@ -62,7 +58,7 @@
             </div>
             <div class="panel-body">
               <?php
-                include('/modal/NuevoUsuario.php');
+                include('modal/NuevoUsuario.php');
               ?>
             </div><!-- fin panel body-->
       </div>
@@ -71,6 +67,6 @@
 </body>
 
 <footer>
-   <?php include '/Plantilla/footer.php'; ?>
+   <?php include 'Plantilla/footer.php'; ?>
 </footer>
 </html>

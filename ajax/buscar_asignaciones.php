@@ -37,7 +37,6 @@
         echo '<table class="table table-hover">';
         echo '<thead>';
         echo '<tr class="info">';
-        echo '<th>ID</th>';
         echo '<th>NOMBRE CUESTIONARIO</th>';
         echo '<th>ROL DE USUARIO</th>';
         echo '<th>FORMATO CLIENTE</th>';
@@ -48,7 +47,6 @@
           if(mysqli_num_rows($result)>0){
             while($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<td>".$row['id']."</td>";
                 echo "<td>".$row['cuestionario']."</td>";
                 echo "<td>".$row['tipo_usuario']."</td>";
                 echo "<td>".$row['tipo_cliente']."</td>";

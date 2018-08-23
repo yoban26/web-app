@@ -6,9 +6,9 @@ define('HOST','localhost');
 
 /*el usuario y password sera el unico para acceder*/
 //nombre de usuario
-define('USER','root');
+define('USER','mercadeo');
 //password de la base de datos
-define('PASS','123456');
+define('PASS','12345319');
 
 /* nombre de bases de datos */
 //base de datos contact

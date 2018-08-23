@@ -78,11 +78,13 @@
             $_SESSION['username'] = $user;
             $_SESSION['login_status'] = 1;
             $_SESSION['user_type'] = $id;
+            $_SESSION['last_action'] = time();
             header("Location: ../administrador.php");
         }else{
             $_SESSION['username'] = $user;
             $_SESSION['login_status'] = 1;
             $_SESSION['user_type'] = $id;
+            $_SESSION['last_action'] = time();
             header("Location: ../consultor.php");
         }
 

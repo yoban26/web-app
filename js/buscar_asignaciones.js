@@ -20,7 +20,7 @@ function getAsignaciones(){
     conexion.onreadystatechange = function(){
       if(conexion.readyState == 4 && conexion.status == 200){
         document.getElementById("show_data").innerHTML = this.responseText;
-        console.log(resp);
+        //console.log(resp);
       }
     }
     conexion.open("GET","ajax/buscar_asignaciones.php?tu="+tipo_usuario+"&tc="+tipo_cliente,true);

@@ -1,4 +1,4 @@
-<div class="modal fade" tabindex="-1" role="dialog" id="NuevoUsuarioModal">
+<div class="modal fade" tabindex="-1" role="dialog" id="NuevoUsuarioModal" data-backdrop="static" data-keyboard="false" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 
@@ -7,8 +7,9 @@
 			  <h4 class="modal-title" id="myModalLabel"><i class='glyphicon glyphicon-edit'></i> Crear Nuevo Usuario</h4>
       </div>
       <div class="modal-body">
-          <form action="controller/NuevoUsuarioController.php" method="post" onsubmit="return validatePassword();">
-          <!-- datos del cliente -->
+          <div id="show_advice"></div>
+          <form action="" method="" onsubmit="">
+          <!-- datos del usuario -->
           <div class="row">
             <div class="col-lg-8 col-sm-6">
               <!-- nombre usuario -->
@@ -36,8 +37,7 @@
                 <label for="password_confirm">Repita Contrase&ntilde;a:</label>
                 <input type="password" class="form-control" id="password_confirm" placeholder="repita contrase&ntilde;a" name="password_confirm" required>
               </div>
-              <span id="show_error">
-              </span>
+              <span id="show_error"></span>
               <!-- estado -->
               <div class="form-group">
                 <label for="estado">Estado:</label>
@@ -64,47 +64,39 @@
                   ?>
                 </select>
               </div>
+              <!-- region -->
+              <div class="form-group">
+                <label for="estado">Region:</label>
+                <select class="form-control" id="region_id" name="region_id" onchange="buscar_cliente(this.value)" required>
+                  <option value="">Seleccione la region</option>
+                  <?php
+                    $query="SELECT id_master_region,nombre_region FROM master_region WHERE id_master_region != 7 ORDER BY nombre_region ASC";
+                    $result = mysqli_query($conn,$query);
+                    if(mysqli_num_rows($result)>0){
+                        while($row = mysqli_fetch_assoc($result)) {
+                            echo "<option value=".$row["id_master_region"].">".$row["nombre_region"]."</option>";
+                        }
+                    }
+                  ?>
+                </select>
+              </div>
+              <div class="form-group" id="id_cliente">
+              </div>
               <!-- botones -->
               <div>
                 <!-- enviar datos -->
-                <button type="submit" class="btn btn-primary">Guardar
-                </button>
-
+                <button type="button" id="btn_save" class="btn btn-primary" onclick="guardar_usuario();" data-backdrop="static" data-keyboard="false" aria-hidden="true">Guardar</button>
                 <!-- limpiar formulario -->
-                <button type="reset" class="btn btn-primary">Limpiar</button>
+                <button type="reset" class="btn btn-primary" id="btn_clean">Limpiar</button>
                 <!-- cancelar la digitacion del nuevo cliente -->
-                <button type="button" class="btn btn-primary" onclick="cancelar()">Cancelar
-                  <?php
-                    if(strcmp($_SESSION['user_type'],"1")==0){
-                  ?>
-                  <script type="text/javascript">
-                    function cancelar(){
-                      alert('desea salir?');
-                      window.location.href='administrador.php';
-                    }
-                  </script>
-                  <?php
-                    }else{
-                  ?>
-                  <script type="text/javascript">
-                    function cancelar(){
-                      alert('desea salir?');
-                      window.location.href='consultor.php';
-                    }
-                  </script>
-                  <?php
-                    }
-                  ?>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="btn_cancel">Cancelar
                   </button>
                 </div>
               </div>
             </div>
         </form>
       </div><!-- final panel body-->
-
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

@@ -12,7 +12,8 @@ if ($_SESSION['login_status'] != 1) {
     //parametros que dependen del usuario
     $nombre_db = $_SESSION['nombre_db'];
     //obteber id a borrar
-    $username = $_GET['username'];
+    $user_type = $_GET['user_type'];
+    $username = $_GET['user'];
     //variable para conectar a la db dependiente el cliente
     $conn = $con->conectar_db($nombre_db);
 
@@ -24,8 +25,13 @@ if ($_SESSION['login_status'] != 1) {
                 <strong>Error de conexion!</strong> Se ha producido un error al conectar con la base de datos, intente recargar la pagina.
                 </div>';
         }else{
-            $sql = "DELETE FROM asignar_cuestionario WHERE id_asignar_cuestionario= '".$id."' ";
-            mysqli_query($conn,$sql);
+            $sql = "UPDATE user SET user_type = '".$user_type."' WHERE username = '".$username."' ";
+            //echo $sql;
+            if(mysqli_query($conn,$sql)){
+               echo "1"; 
+            }else{
+               echo "0";
+            }
             //echo 'Se ha borrado con exito';
         }//fin if
 

@@ -1,6 +1,6 @@
 <?php
 
-    session_start();
+    include 'config/session_expire.php';
 
     //validar si el usuario inicio session en la app
      if ($_SESSION['login_status'] != 1) {
@@ -37,19 +37,30 @@
 <head>
     <?php
       $title = "Gestionar Usuario";
-      include '/Plantilla/header.php';
+      include 'Plantilla/header.php';
     ?>
     <script type="text/javascript" src="js/buscar_usuario.js"></script>
     <link rel="stylesheet" href="css/snackbar.css">
     <script type="text/javascript" src="js/update.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#myModal').on('hidden.bs.modal',function(e){
+          $('.form-control').val('');
+          $('#show_advice').html('');
+          //verificar si el boton de asignar esta habilitado
+          $("#guardar_datos").removeAttr('disabled');
+        });
+      });
+    </script>
 </head>
 
 <body>
     <?php
       if(strcmp($user_type,"1")==0){
-        include '/Plantilla/navbar.php';
+        include 'Plantilla/navbar.php';
       }else{
-        include '/Plantilla/navbar_consultor.php';
+        include 'Plantilla/navbar_consultor.php';
       }
     ?>
 
@@ -62,13 +73,13 @@
             </div>
             <div class="panel-body">
               <?php
-                include('/modal/ModificarRol.php');
+                include('modal/ModificarRol.php');
               ?>
               <form class="form-horizontal" role="form" id="datos_cotizacion">
                   <div class="form-group row">
                     <label for="q" class="col-md-2 control-label">Usuario</label>
                     <div class="col-md-5">
-                      <input type="text" class="form-control" id="name_user" placeholder="ingrese nombre o usuario">
+                      <input type="text" class="form-control" id="name_user" placeholder="ingrese nombre o usuario" onkeydown="return (event.keyCode!=13);">
                     </div>
                     <div class="col-md-3">
                       <button type="button" class="btn btn-default" onclick="getUsuario()">
@@ -78,6 +89,7 @@
                   </div>
               </form>
               <div id="snackbar"></div>
+              <input type="hidden" id="aux">
             </div><!-- fin panel body-->
       </div><!-- fin panel info -->
       <div id="result"></div>
@@ -86,6 +98,6 @@
 </body>
 
 <footer>
-   <?php include '/Plantilla/footer.php'; ?>
+   <?php include 'Plantilla/footer.php'; ?>
 </footer>
 </html>
