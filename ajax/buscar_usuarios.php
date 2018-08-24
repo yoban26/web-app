@@ -23,7 +23,7 @@
 
         $result = mysqli_query($conn,"SET CHARSET utf8");
         $result = mysqli_query($conn,$query);
-        echo '<table class="table table-hover table-bordered">';
+        echo '<table class="table table-hover table-bordered table-responsive">';
         echo '<thead>';
         echo '<tr class="info">';
         echo '<th>NOMBRE</th>';

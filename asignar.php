@@ -42,7 +42,6 @@
     <script type="text/javascript" src="js/buscar_asignaciones.js"></script>
     <script type="text/javascript" src="js/guardar_asignacion.js"></script>
     <script type="text/javascript" src="js/delete.js"></script>
-    <script type="text/javascript" src="js/jquery.js"></script>
     <link rel="stylesheet" href="css/notification.css">
     <link rel="stylesheet" href="css/snackbar.css">
     <script type="text/javascript">
@@ -51,7 +50,7 @@
           $('.form-control').val('');
           $('#result').html('');
           //verificar si el boton de asignar esta habilitado
-          document.getElementById("guadar_datos").disable = false;
+          $("#guardar_datos").removeAttr('disabled');
         })
       })
     </script>
