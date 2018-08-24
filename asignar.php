@@ -16,7 +16,7 @@
         $user_type = $_SESSION['user_type'];
         //parametros que dependen del usuario
         //evaluar los valores de nombre_db e id_region
-        if(!isset($_SESSION['nombre_db']) && !isset($_SESSION['id_region'])){
+        if(!isset($_SESSION['nombre_db']) && !isset($_SESSION['id_region']) && !isset($_SESSION['cliente_externo'])){
           echo '<div class="alert alert-warning alert-dismissible fade in">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong>Aviso!</strong> Debe seleccionar region y cliente en el dashboard.
@@ -25,6 +25,7 @@
           //si esta definida, guardar el valor
           $nombre_db = $_SESSION['nombre_db'];
           $id_region = $_SESSION['id_region'];
+          $cliente_externo = $_SESSION['cliente_externo'];
           //variable para conectar a la db dependiente el cliente
           $conn_db = $con->conectar_db($nombre_db);
         }

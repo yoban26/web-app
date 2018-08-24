@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<body>
-
 <?php
-$str = "123456";
-echo md5($str);
+	$pass = $_GET['password'];
+	$pass_encrytp = md5($pass);
+	echo "pass encrypt with variable: ".$pass_encrytp;
 ?>  
  
-</body>
-</html>

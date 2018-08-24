@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App Admin - Login</title>
+    <title>M&CIS CMS - Login</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-6 col-sm-4">
-                <h3 style="text-align: center;">Login - WS Administrator</h3>
+                <h3 style="text-align: center;">M&CIS CMS</h3>
             </div>
         </div>
         <div class="row">
@@ -29,7 +29,6 @@
                             <input type="text" class="form-control" placeholder="nombre de usuario" name="username" required autofocus>
                             <input type="password" class="form-control" placeholder="contraseña" name="password" required>
                             <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesion</button>
-
                                 <?php
                                     if(isset($_SESSION["error"])){
                                         $error = $_SESSION["error"];

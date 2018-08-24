@@ -8,33 +8,31 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">App Admin</a>
+      <a class="navbar-brand" href="#">Admin Console</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="administrador.php"><i class='fa fa-bar-chart'></i> Dashboard</a></li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class='glyphicon glyphicon-plus'></i> Nuevo <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class='glyphicon glyphicon-list-alt'></i> Gestion CMS <span class="caret"></span></a>
+          <ul class="dropdown-menu multi-level">
             <li><a href="Usuario.php">Usuario</a></li>
             <li><a href="TipoUsuario.php">Tipo Usuario</a></li>
             <li><a href="Region.php">Region</a></li>
+            <li><a href="Region.php">Cliente</a></li>
           </ul>
-        </li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class='glyphicon glyphicon-list-alt'></i> Gestion <span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class='glyphicon glyphicon-list-alt'></i> Gestion M&CIS<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="GestionarUsuario.php">Usuario</a></li>
             <li><a href="#">Tipo Usuario</a></li>
             <li><a href="#">Region</a></li>
-          </ul>
-        </li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class='glyphicon glyphicon-share'></i> Asignar <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="asignar.php">Cuestionario</a></li>
-            <li><a href="#">Cliente a Usuario</a></li>
-            <li><a href="#">Region a Usuario</a></li>
-            <li><a href="#">Tipo Usuario a Usuario</a></li>
+            <li class="dropdown-submenu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Asignar</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="asignar.php">Cuestionario</a></li>
+                  </ul>
+          </li>
           </ul>
         </li>
        </ul>

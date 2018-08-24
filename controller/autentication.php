@@ -15,8 +15,9 @@
     $username = $_POST['username'];
     //$username = mysqli_real_escape_string($con,(strip_tags($_POST["mod_nombre"],ENT_QUOTES)));
     $password = $_POST['password'];
+    $password_encrypt = md5($password);
 
-    $error = '<div class="alert alert-danger"><strong>Autentication Fail!</strong> username or password is wrong.</div>';
+    $error = '<div class="alert alert-danger"><strong>Error de inicio de sesion!</strong> El usuario o el password son incorrectos.</div>';
 
     /* comprobar la conexión */
     if (mysqli_connect_errno()) {
@@ -27,8 +28,6 @@
     }else if(!empty($username) AND !empty($password)){
 
         //encrypt password
-        $password_encrypt = md5($password);
-
         $sql =  "SELECT master_user.username,master_user.password FROM master_user WHERE master_user.username = '".$username."' AND master_user.password = '".$password_encrypt."' AND master_user.active = 1 ";
 
         if ($sentencia = mysqli_prepare($conn, $sql)) {

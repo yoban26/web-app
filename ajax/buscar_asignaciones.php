@@ -15,6 +15,7 @@
       //parametros que dependen del usuario
       $nombre_db = $_SESSION['nombre_db'];
       $region = $_SESSION['id_region'];
+      $cliente_externo = $_SESSION['cliente_externo'];
       //datos de asignarcion para buscar_asignaciones
       $tipo_usuario = $_GET['tu'];
       $tipo_cliente = $_GET['tc'];

@@ -7,21 +7,32 @@
   $conn = $con->conectar();
 
   //parametros a recibir
-  $nombre = $_GET['nombre'];
+  /*$nombre = $_GET['nombre'];
 	$apellido = $_GET['apellido'];
 	$username = $_GET['username'];
-	$password = md5($_GET['password']);
+	$password = $_GET['password'];
+  $password_encryt = md5($password);
 	$estado = $_GET['estado'];
 	$id_rol = $_GET['id_rol'];
 	$id_region = $_GET['id_region'];
-	$id_cliente = $_GET['id_cliente'];
+	$id_cliente = $_GET['id_cliente'];*/
+
+  $nombre = $_POST['nombre'];
+  $apellido = $_POST['apellido'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $password_encryt = md5($password);
+  $estado = $_POST['estado'];
+  $id_rol = $_POST['id_rol'];
+  $id_region = $_POST['id_region'];
+  $id_cliente = $_POST['id_cliente'];
 	
   		if(mysqli_connect_errno()){
   			echo '<div class="alert alert-danger">
               <strong>Error de conexion!</strong> Se ha producido un error al conectar con la base de datos, intente recargar la pagina.
               </div>';
   		}else{
-  			$query = "INSERT INTO master_user (username,firstName,lastName,password,active,user_type) VALUES ('".$username."','".$nombre."','".$apellido."','".$password."','".$estado."','".$id_rol."')";
+  			$query = "INSERT INTO master_user (username,firstName,lastName,password,active,user_type) VALUES ('".$username."','".$nombre."','".$apellido."','".$password_encryt."','".$estado."','".$id_rol."')";
     		mysqli_query($conn,"SET CHARSET utf8");
     		//si pudo crear/insetar el nuevo usuario
     		if(mysqli_query($conn,$query)){
