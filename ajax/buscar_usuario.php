@@ -15,6 +15,7 @@
       //parametros que dependen del usuario
       $nombre_db = $_SESSION['nombre_db'];
       $region = $_SESSION['id_region'];
+      $cliente_externo = $_SESSION['cliente_externo'];
       //datos de asignarcion para buscar_asignaciones
       $usuario = $_GET['user'];
       //variable para conectar a la db dependiente el cliente
@@ -28,7 +29,7 @@
               <strong>Error de conexion!</strong> Se ha producido un error al conectar con la base de datos, intente recargar la pagina.
               </div>';
       }else{
-        $query = "SELECT DISTINCT mercaderista.nombre as mercaderista,user.username,user_type.name_type as tipo_usuario FROM user,mercaderista,user_type WHERE `user`.username = mercaderista.username AND user.user_type = user_type.id_user_type AND (mercaderista.nombre LIKE '%".$usuario."%' OR mercaderista.username LIKE '%".$usuario."%') AND mercaderista.region = '".$region."' AND user.active = 1";
+        $query = "SELECT DISTINCT mercaderista.nombre as mercaderista,user.username,user_type.name_type as tipo_usuario FROM user,mercaderista,user_type,supervisor,cliente_externo,supervisor_cliente_externo WHERE `user`.username = mercaderista.username AND mercaderista.supervisor = supervisor.id_supervisor AND supervisor_cliente_externo.supervisor = supervisor.id_supervisor AND supervisor_cliente_externo.cliente_externo = cliente_externo.id_cliente_externo AND user.user_type = user_type.id_user_type AND (mercaderista.nombre LIKE '%".$usuario."%' OR mercaderista.username LIKE '%".$usuario."%') AND mercaderista.region = '".$region."' AND user.active = 1 AND cliente_externo.id_cliente_externo = '".$cliente_externo."' ";
         
         $result = mysqli_query($conn,"SET CHARSET utf8");
         $result = mysqli_query($conn,$query);
