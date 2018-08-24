@@ -25,6 +25,7 @@
       $title = "Nuevo Usuario";
       include 'Plantilla/header.php';
     ?>
+    <script type="text/javascript" src="js/lista_usuarios.js"></script>
     <script type="text/javascript" src="js/usuario.js"></script>
     <script type="text/javascript" src="js/select_cliente.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -38,7 +39,7 @@
     </script>
 </head>
 
-<body data-spy="scroll" data-target="#myScroll" data-offset="20">
+<body data-spy="scroll" data-target="#myScroll" data-offset="20" onload="getUsuarios()">
     <?php
       if(strcmp($user_type,"1")==0){
         include 'Plantilla/navbar.php';
@@ -60,6 +61,8 @@
               <?php
                 include('modal/NuevoUsuario.php');
               ?>
+              <p><h3>Listado usuarios activos</h3></p>
+              <div id="show_data">
             </div><!-- fin panel body-->
       </div>
     </div>
