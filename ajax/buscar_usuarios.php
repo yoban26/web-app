@@ -19,11 +19,11 @@
               <strong>Error de conexion!</strong> Se ha producido un error al conectar con la base de datos, intente recargar la pagina.
               </div>';
       }else{
-        $query = "SELECT firstName,lastName,username,master_user_type.nombre as user_type,active FROM master_user,master_user_type WHERE master_user.user_type = master_user_type.id_user_type ORDER BY firstName DESC";
+        $query = "SELECT firstName,lastName,username,master_user_type.nombre as user_type,active FROM master_user,master_user_type WHERE master_user.user_type = master_user_type.id_user_type ORDER BY firstName ASC";
 
         $result = mysqli_query($conn,"SET CHARSET utf8");
         $result = mysqli_query($conn,$query);
-        echo '<table class="table table-hover">';
+        echo '<table class="table table-hover table-bordered">';
         echo '<thead>';
         echo '<tr class="info">';
         echo '<th>NOMBRE</th>';

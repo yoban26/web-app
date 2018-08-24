@@ -32,7 +32,7 @@
         
         $result = mysqli_query($conn,"SET CHARSET utf8");
         $result = mysqli_query($conn,$query);
-        echo '<table class="table table-hover">';
+        echo '<table class="table table-hover table-bordered">';
         echo '<thead>';
         echo '<tr class="info">';
         echo '<th>NOMBRE MERCADERISTA</th>';
