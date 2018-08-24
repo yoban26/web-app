@@ -23,6 +23,8 @@
         //Kill their session.
         session_unset();
         session_destroy();
+        $expire = '<div class="alert alert-danger"><strong>Tu session ha expirado!</strong> Has estado inactivo por mucho tiempo en el sistema.</div>';
+        $_SESSION['expire'] = $exipire;
         header("Location: login.php");
     	exit;
     }

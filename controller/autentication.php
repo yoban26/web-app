@@ -17,7 +17,7 @@
     $password = $_POST['password'];
     $password_encrypt = md5($password);
 
-    $error = '<div class="alert alert-danger"><strong>Error de inicio de sesion!</strong> El usuario o el password son incorrectos.</div>';
+    $error = '<div class="alert alert-danger"><strong>Error de inicio de sesion!</strong> El usuario o el password son incorrectos y/o usuario inactivo.</div>';
 
     /* comprobar la conexión */
     if (mysqli_connect_errno()) {

@@ -35,6 +35,12 @@
                                         echo "<span>$error</span>";
                                     }
                                 ?>
+                                <?php
+                                    if(isset($_SESSION["expire"])){
+                                        $expire = $_SESSION["expire"];
+                                        echo "<span>$expire</span>";
+                                    }
+                                ?>
                         </form>
                 </div>
             </div>
