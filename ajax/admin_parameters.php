@@ -34,6 +34,19 @@
           //echo "<p> Region: ".$id_region."</p>";
           //echo "<p> Nombre Region: ".$nombre_region."</p>";
 
+          //obtener el id del cliente externo el cual tiene el cliente en su db segun su region
+          $query_externo = "SELECT cliente_externo FROM master_region_cliente WHERE cliente = '".$cliente_id."' AND region = '".$region_id."' ";
+          $result_externo = mysqli_query($conn,$query_externo);
+
+          if(mysqli_num_rows($result_externo)>0){
+              while($row = mysqli_fetch_assoc($result_externo)) {
+                  $cliente_externo = $row["cliente_externo"];
+                  $_SESSION['cliente_externo'] = $cliente_externo;
+              }
+          }
+          //echo "<p> Region: ".$id_region."</p>";
+          //echo "<p> Nombre Region: ".$nombre_region."</p>";
+
           $query_cliente = "SELECT nombre_db FROM master_cliente WHERE id_master_cliente = '".$cliente_id."' ";
           $result_cliente = mysqli_query($conn,$query_cliente);
 
