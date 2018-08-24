@@ -19,7 +19,7 @@
               <strong>Error de conexion!</strong> Se ha producido un error al conectar con la base de datos, intente recargar la pagina.
               </div>';
       }else{
-        $query = "SELECT firstName,lastName,username,user_type,active FROM master_user,master_user_type WHERE master_user.user_type = master_user_type.id_user_type ORDER BY firstName DESC";
+        $query = "SELECT firstName,lastName,username,master_user_type.nombre as user_type,active FROM master_user,master_user_type WHERE master_user.user_type = master_user_type.id_user_type ORDER BY firstName DESC";
 
         $result = mysqli_query($conn,"SET CHARSET utf8");
         $result = mysqli_query($conn,$query);
@@ -51,16 +51,30 @@
                 echo "<td>".$est."</td>";
                 //modificar
                 echo '<td class="text-right">';
-                /*echo '<a title="quitar cuestionario" class="btn btn-default" onclick="eliminar('.$row['id'].')">';*/
-                echo '<a title="modificar usuario" class="btn btn-default" onclick="eliminar('.$row['username'].')">';
-                echo '<i class="glyphicon glyphicon-cogwheel"></i>';
-                echo '</a></td>';
+                
+                //modificar
+                echo '<a title="modificar usuario" class="btn btn-default"';
+                echo 'onclick="modificar(';
+                echo "'"; 
+                echo ''.$row['username'].'';
+                echo "'";
+                echo ');" '; 
+                echo 'href="#" data-toggle="modal" data-target="#myModal">';
+                echo '<i class="glyphicon glyphicon-pencil"></i>';
+                echo '</a>';
+
                 //eliminar
-                echo '<td class="text-right">';
-                /*echo '<a title="quitar cuestionario" class="btn btn-default" onclick="eliminar('.$row['id'].')">';*/
-                echo '<a title="eliminar usuario" class="btn btn-default" onclick="eliminar('.$row['username'].')">';
+                echo '<a title="eliminar usuario" class="btn btn-default"';
+                echo 'onclick="eliminar(';
+                echo "'"; 
+                echo ''.$row['username'].'';
+                echo "'";
+                echo ');" '; 
+                echo 'href="#" data-toggle="modal" data-target="#myModal">';
                 echo '<i class="glyphicon glyphicon-trash"></i>';
-                echo '</a></td>';
+                echo '</a>';
+                
+                echo '</td>';
                 echo '</tr>';
             }
         echo '</tbody>';

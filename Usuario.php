@@ -61,7 +61,7 @@
               <?php
                 include('modal/NuevoUsuario.php');
               ?>
-              <p><h3>Listado usuarios activos</h3></p>
+              <p><h3>Listado usuarios</h3></p>
               <div id="show_data">
             </div><!-- fin panel body-->
       </div>
